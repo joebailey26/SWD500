@@ -1,0 +1,93 @@
+@import 'resets';
+
+$no-cols: 12;
+$padding: 12px;
+
+.content {
+    width: 80%;
+    margin: auto;
+}
+
+.wrapper, .row {
+    width: 100%;
+    display: table;
+}
+
+.col-1 {
+    width: calc((100% / (#{$no-cols} / 1)))
+}
+
+.col-2 {
+    width: calc((100% / (#{$no-cols} / 2)))
+}
+
+.col-3 {
+    width: calc((100% / (#{$no-cols} / 3)))
+}
+
+.col-4 {
+    width: calc((100% / (#{$no-cols} / 4)));
+}
+
+.col-5 {
+    width: calc((100% / (#{$no-cols} / 5))); 
+}
+
+.col-6 {
+    width: calc((100% / (#{$no-cols} / 6)));
+}
+
+.col-7 {
+    width: calc((100% / (#{$no-cols} / 7)));
+}
+
+.col-8 {
+    width: calc((100% / (#{$no-cols} / 8)));
+}
+
+.col-9 {
+    width: calc((100% / (#{$no-cols} / 9)));
+}
+
+.col-10 {
+    width: calc((100% / (#{$no-cols} / 10)));
+}
+
+.col-11 {
+    width: calc((100% / (#{$no-cols} / 11)));
+}
+
+.col-12 {
+    width: 100%;
+}
+
+[class*='col-'] {
+    float: left;
+    padding: $padding;
+}
+
+.row:before, 
+.row:after {
+     content:"";
+     clear:both;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.orange {
+    background-color: orange;
+}
+
+* {
+    box-sizing: border-box;
+}
