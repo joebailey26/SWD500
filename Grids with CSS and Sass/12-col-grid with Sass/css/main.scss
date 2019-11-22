@@ -1,8 +1,5 @@
 @import 'resets';
 
-$no-cols: 12;
-$padding: 12px;
-
 .content {
     width: 80%;
     margin: auto;
@@ -13,57 +10,49 @@ $padding: 12px;
     display: table;
 }
 
-.col-1 {
-    width: calc((100% / (#{$no-cols} / 1)))
+@mixin grid-generator($size, $grid-cols) {
+	@for $i from 1 through $grid-cols {
+		.col-#{$size}-#{$i} {
+			width: percentage($i / $grid-cols);
+		}
+	}
 }
 
-.col-2 {
-    width: calc((100% / (#{$no-cols} / 2)))
+@mixin respond-from($media) {
+	@if $media == xs {
+		@media (min-width: 0px)  { @content; }
+	} @else if $media == sm {
+		@media (min-width: 768px) { @content; }
+	} @else if $media == md {
+		@media (min-width: 1200px) { @content; }
+	} @else if $media == lg {
+		@media (min-width: 1440px) { @content; }
+	} @else if $media == xl {
+		@media (min-width: 1800px) { @content; }
+	}
 }
 
-.col-3 {
-    width: calc((100% / (#{$no-cols} / 3)))
+@include grid-generator(xs, 12);
+
+@include respond-from(sm) {
+	@include grid-generator(sm, 12);
 }
 
-.col-4 {
-    width: calc((100% / (#{$no-cols} / 4)));
+@include respond-from(md) {
+	@include grid-generator(md, 12);
 }
 
-.col-5 {
-    width: calc((100% / (#{$no-cols} / 5))); 
+@include respond-from(lg) {
+	@include grid-generator(lg, 12);
 }
 
-.col-6 {
-    width: calc((100% / (#{$no-cols} / 6)));
-}
-
-.col-7 {
-    width: calc((100% / (#{$no-cols} / 7)));
-}
-
-.col-8 {
-    width: calc((100% / (#{$no-cols} / 8)));
-}
-
-.col-9 {
-    width: calc((100% / (#{$no-cols} / 9)));
-}
-
-.col-10 {
-    width: calc((100% / (#{$no-cols} / 10)));
-}
-
-.col-11 {
-    width: calc((100% / (#{$no-cols} / 11)));
-}
-
-.col-12 {
-    width: 100%;
+@include respond-from(xl) {
+	@include grid-generator(xl, 12);
 }
 
 [class*='col-'] {
     float: left;
-    padding: $padding;
+    padding: 12px;
 }
 
 .row:before, 
